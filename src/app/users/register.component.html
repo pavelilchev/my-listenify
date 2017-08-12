@@ -1,0 +1,12 @@
+<h1>Register</h1>
+<form #registerForm="ngForm" (ngSubmit)="register()">
+    Username:
+    <input type="text" name="username" [(ngModel)]="user.username"><br>
+    Youtube Username:
+    <input type="text" name="youtubeUsername" [(ngModel)]="user.youtubeUsername"><br>
+    Password:
+    <input type="password" name="password" [(ngModel)]="user.password"><br>
+    Confirm  Password:
+    <input type="password" name="confirmPassword" [(ngModel)]="user.confirmPassword"><br>
+    <input type="submit" value="Register">
+</form>

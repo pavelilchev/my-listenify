@@ -1,0 +1,9 @@
+<div class="container">
+    <h1>My Playlists</h1>
+    <div class="row"  *ngFor="let playlist of chanelInfo.items">
+        <div class="col-xs-12">
+            <a [routerLink]="['/user/playlist', playlist?.id]">{{playlist?.snippet?.localized?.title}}</a>
+        </div>
+    </div>
+    
+</div>
