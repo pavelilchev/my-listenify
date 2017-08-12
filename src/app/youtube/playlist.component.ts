@@ -11,7 +11,7 @@ import { YoutubeService } from './youtube.service';
 
 export class PlaylistComponent implements OnInit {
     id: string;
-    playlist: {};
+    playlist: Array<any>;
 
     constructor(
         private route: ActivatedRoute,
@@ -22,9 +22,14 @@ export class PlaylistComponent implements OnInit {
             this.id = params['id'];
             this.youtubeService
                 .loadPlayList(this.id)
-                .then(playlist => {
-                    console.log(playlist)
-                    this.playlist = playlist;
+                .then(data => {
+                    console.log(data) 
+                    debugger               
+                    for(let video of data.items){
+                        video['src'] = `https://www.youtube.com/embed?listType=playlist&list=${video.snippet.playlistId}`;
+                    }
+                    
+                    this.playlist = data.items;
                 })
         });
     }
